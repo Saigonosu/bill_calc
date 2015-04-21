@@ -9,18 +9,18 @@ class VerizonPage
   end
 
   def log_in
-    user_name.set(username)
-    home_signin.click
+    user_name = username
+    home_signin
   end
 
   def answer_secret
-    answer.set(secret)
-    submit_answer.click
+    answer = secret
+    submit_answer
   end
 
   def input_password
-    password_text.set(password) 
-    pasword_submit.click
+    password_text = password
+    pasword_submit
   end
 
   private
@@ -39,10 +39,10 @@ class VerizonPage
 
   text_field(:user_name, id: => 'IDToken1')
   text_field(:answer, id: => 'IDToken1')
+  text_field(:password_text, id: 'IDToken2')
   button(:home_signin, class: 'o-sign-in-bar-sign-in')
   button(:submit_answer, id: 'signIn')
   alias_method :password_submit, :submit_answer
-  text_field(:password_text, id: 'IDToken2')
   button(:popup_close, class: => 'ui-dialog-titlebar-close ui-corner-all vzr_close')
   button(:current_bill, text: 'View Current Bill')
   button(:line_charges, id: 'lineChargesTab')
